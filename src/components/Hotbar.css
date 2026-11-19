@@ -1,0 +1,107 @@
+﻿.hotbar-container {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(10, 14, 12, 0.85);
+    border: 1px solid #334136;
+    border-radius: 6px;
+}
+
+.hotbar-slot {
+    width: 48px;
+    height: 48px;
+    background: rgba(25, 35, 28, 0.7);
+    border: 1px solid #3a4d40;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotbar-slot:hover {
+    border-color: #fbbf24;
+    background: rgba(40, 55, 43, 0.9);
+}
+
+.hotbar-slot.filled {
+    border-color: #60a5fa;
+    background: rgba(20, 30, 45, 0.8);
+}
+
+.hotbar-key {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 10px;
+    color: #94a3b8;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.hotbar-item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hotbar-item-name {
+    font-size: 9px;
+    color: #e2e8f0;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.hotbar-remove-btn {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.hotbar-slot:hover .hotbar-remove-btn {
+    opacity: 1;
+}
+
+/* Consume button for food and drinks */
+.hotbar-consume-btn {
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+    background: none;
+    border: none;
+    font-size: 11px;
+    line-height: 1;
+    padding: 0 2px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.hotbar-slot:hover .hotbar-consume-btn {
+    opacity: 1;
+}
+
+.hotbar-consume-btn:hover {
+    transform: scale(1.2);
+}

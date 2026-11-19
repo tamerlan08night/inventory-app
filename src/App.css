@@ -1,0 +1,393 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* Atmospheric survival background (dark forest/mountains) */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+  url('https://images.unsplash.com/photo-1542224566-6e85f2e6772f?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #d1d5db;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 1100px;
+  justify-content: center;
+}
+
+.nav-btn {
+  background: linear-gradient(to bottom, rgba(45, 55, 50, 0.9), rgba(27, 35, 31, 0.9));
+  color: #e2e8f0;
+  border: 1px solid #4a5568;
+  padding: 8px 22px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: linear-gradient(to bottom, rgba(59, 74, 66, 0.9), rgba(36, 48, 41, 0.9));
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+
+.main-workspace {
+  display: flex;
+  gap: 15px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Translucent panels with a glass effect */
+.panel {
+  background: rgba(14, 20, 16, 0.8);
+  border: 1px solid rgba(51, 65, 54, 0.8);
+  border-radius: 8px;
+  padding: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.nav-btn.active {
+  border-color: #fbbf24;
+  background: linear-gradient(to bottom, rgba(74, 90, 78, 0.9), rgba(40, 55, 47, 0.9));
+  color: #fbbf24;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+}
+
+.sub-view-container {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.sub-view-container h2 {
+  color: #fbbf24;
+  font-family: monospace;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+/* Widen the content container so the 3 columns fit comfortably */
+.sub-view-content {
+  margin: 20px 0;
+  width: 100%;
+  max-width: 1050px;
+  display: flex;
+  justify-content: center;
+}
+
+.tab-preview-img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #4a5568;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* Grid for the field manual */
+.manual-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+}
+
+/* Single vertical column */
+.manual-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 320px;
+}
+
+/* Title box on top (like the gray block in the mockup) */
+.manual-title-box {
+  background: rgba(25, 35, 28, 0.9);
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #fbbf24;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Image frame (like the black block in the mockup) with a hover effect */
+.manual-frame {
+  width: 100%;
+  height: 340px;
+  background: #0b0f0d;
+  border: 2px solid #3a4d40;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+.manual-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  filter: brightness(0.85);
+}
+
+/* Interactive hover effect */
+.manual-frame:hover {
+  border-color: #fbbf24;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+  transform: translateY(-5px);
+}
+
+.manual-frame:hover img {
+  transform: scale(1.07);
+  filter: brightness(1.1);
+}
+
+/* Research progress and points panel */
+.research-top-panel {
+  background: rgba(14, 20, 16, 0.9);
+  border: 1px solid #3a4d40;
+  border-radius: 8px;
+  padding: 15px 25px;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.research-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.research-stat-label {
+  font-size: 11px;
+  color: #94a3b8;
+  font-family: monospace;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.research-stat-value {
+  color: #fbbf24;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Experience bar (XP bar) */
+.xp-bar-container {
+  flex: 1;
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.xp-bar-bg {
+  width: 100%;
+  height: 12px;
+  background: #0b0f0d;
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.xp-bar-fill {
+  width: 65%; /* XP fill level, can be changed as needed */
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+}
+
+.xp-text {
+  font-size: 11px;
+  color: #cbd5e1;
+  margin-top: 4px;
+  text-align: right;
+  font-family: monospace;
+}
+
+/* Frame for the research tree image */
+.research-frame {
+  width: 100%;
+  max-width: 900px;
+  height: 420px;
+  background: #0b0f0d;
+  border: 2px solid #3a4d40;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+.research-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.research-frame:hover {
+  border-color: #fbbf24;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+}
+
+.research-frame:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+/* Panel with research level buttons */
+.research-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.research-tab-btn {
+  background: rgba(20, 28, 22, 0.9);
+  color: #cbd5e1;
+  border: 1px solid #4a5568;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-family: monospace;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.research-tab-btn:hover {
+  border-color: #fbbf24;
+  color: #fbbf24;
+}
+
+.research-tab-btn.active {
+  background: #3a4d40;
+  border-color: #fbbf24;
+  color: #fbbf24;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+}
+
+/* Achievements grid (3 columns) with scrolling when it overflows */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 1050px;
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 5px;
+  text-align: left;
+}
+
+/* Single achievement card */
+.achievement-card {
+  background: rgba(14, 20, 16, 0.85);
+  border: 1px solid #3a4d40;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+/* When the achievement is unlocked */
+.achievement-card.unlocked {
+  border-color: #fbbf24;
+  background: rgba(30, 38, 30, 0.9);
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.25);
+}
+
+/* When locked — darker */
+.achievement-card.locked {
+  opacity: 0.55;
+  filter: grayscale(0.4);
+}
+
+.achievement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.achievement-title {
+  color: #fbbf24;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.achievement-card.locked .achievement-title {
+  color: #94a3b8;
+}
+
+.achievement-status {
+  font-size: 11px;
+  font-family: monospace;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.unlocked-badge {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  border: 1px solid #fbbf24;
+}
+
+.locked-badge {
+  background: rgba(100, 116, 139, 0.2);
+  color: #94a3b8;
+  border: 1px solid #4a5568;
+}
+
+.achievement-desc {
+  font-size: 11px;
+  color: #cbd5e1;
+  line-height: 1.3;
+}

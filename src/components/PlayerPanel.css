@@ -1,0 +1,175 @@
+﻿.player-panel {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.stats-box {
+    background: rgba(10, 14, 12, 0.9);
+    border: 1px solid #334136;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.health-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(180, 40, 40, 0.2);
+    border: 1px solid rgba(220, 50, 50, 0.5);
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.heart-icon {
+    font-size: 24px;
+}
+
+.health-text {
+    display: flex;
+    flex-direction: column;
+    color: #ff6b6b;
+    font-size: 18px;
+}
+
+.health-text span {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #ffa8a8;
+}
+
+/* Horizontal layout for calories and thirst */
+.other-stats {
+    display: flex;
+    gap: 8px;
+}
+
+.stat-box-item {
+    flex: 1;
+    background: rgba(25, 35, 28, 0.8);
+    border: 1px solid #3a4d40;
+    padding: 6px 8px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.stat-box-item strong {
+    font-size: 13px;
+    color: #fbbf24;
+    margin-top: 2px;
+}
+
+/* Equipment and silhouette block */
+.equipment-container {
+    display: flex;
+    gap: 10px;
+    background: rgba(10, 14, 12, 0.9);
+    border: 1px solid #334136;
+    padding: 10px;
+    border-radius: 6px;
+    height: 350px;
+}
+
+.character-silhouette {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #050706;
+    border: 1px solid #223026;
+    border-radius: 4px;
+    background-image: radial-gradient(circle, #1a2620 10%, #050706 90%);
+}
+
+.character-silhouette img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.92;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.12));
+}
+
+.equipment-slots {
+    display: flex;
+    gap: 6px;
+    width: 90px;
+}
+
+.gear-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.gear-slot {
+    height: 60px;
+    background: rgba(25, 35, 28, 0.8);
+    border: 1px solid #4a5568;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.gear-slot:hover {
+    border-color: #fbbf24;
+    background: rgba(40, 55, 43, 0.9);
+}
+
+.gear-slot.special {
+    background: rgba(18, 24, 20, 0.6);
+}
+
+.gear-slot.equipped {
+    border-color: #fbbf24;
+    background: rgba(245, 158, 11, 0.25);
+}
+
+.equipped-name {
+    font-size: 9px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    word-break: break-word;
+    padding: 2px;
+}
+
+/* Survival controls button */
+.survival-open-btn {
+    padding: 7px 10px;
+    background: rgba(20, 28, 22, 0.9);
+    border: 1px solid #4a5568;
+    border-radius: 4px;
+    color: #cbd5e1;
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.survival-open-btn:hover {
+    border-color: #fbbf24;
+    color: #fbbf24;
+}
+
+.survival-open-btn.flowing {
+    border-color: #22c55e;
+    color: #4ade80;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.35);
+}
